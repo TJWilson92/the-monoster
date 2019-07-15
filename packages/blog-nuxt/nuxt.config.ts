@@ -16,7 +16,15 @@ const nuxtConfig: NuxtConfiguration = {
         content: process.env.npm_package_description || "",
       },
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+    link: [
+      { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+      {
+        href:
+          "https://fonts.googleapis.com/css?family=Merriweather:300,400,500|Work+Sans&display=swap",
+        rel: "stylesheet",
+        type: "text/css",
+      },
+    ],
   },
   /*
    ** Customize the progress-bar color
