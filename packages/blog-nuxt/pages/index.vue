@@ -1,25 +1,23 @@
 <template>
   <div>
     <header class="header">
-      <div class="header__name inline-block align-middle">
-        Thomas Wilson
-      </div>
+      <div class="header__name inline-block align-middle">Thomas Wilson</div>
       <div class="header__icons">
         <div class="header__icons__icon">
-          <svg src="~/assets/icons/linkedin.svg" />
+          <icon icon-name="twitter" />
         </div>
         <div class="header__icons__icon">
-          <linkedin />
+          <icon icon-name="linkedin" />
         </div>
         <div class="header__icons__icon">
-          Twitter
+          <icon icon-name="git" />
         </div>
       </div>
     </header>
     <main class="w-full">
       <div class="bio w-full flex flex-col items-center">
         <p
-          class="bio__text px-3 sm:px-5 text-lg  flex items-center py-5 leading-loose font-light text-center"
+          class="bio__text px-3 sm:px-5 text-lg flex items-center py-5 leading-loose font-light text-center"
         >
           I design and build things on the web. Currently working in data
           privacy, previously in EdTech. I also dance and produce for genau
@@ -32,29 +30,30 @@
         <div class="bio-grid text-sm font-light leading-relaxed">
           <div class="bio-grid__cell">
             <p>
-              <span class="font-normal">Web Developer</span> I enjoy working
-              most on the front of the web stack, but at least some experience
-              on each layers of the stack. I am most comfortable with TypeScript
-              and Ruby, but I have worked in production with Python, C#, and
-              Java
+              <span class="font-normal">Web Developer.</span> The web is neat and I
+              enjoy makig things for it - especially building information-heavy interfaces.
+              I'm most familiar with React, but this site is built in Vue.
+              I've worked my way down most rungs on the stack - working with servers and cloud
+              development. I am most comfortable with TypeScript
+              and Ruby, but I have worked in production with Python, C#, and Java.
             </p>
           </div>
           <div class="bio-grid__cell">
             <p class="font-light">
               <span class="font-medium">Designer</span> I am interested in
-              visual design for the web, and I am actively developing the skills
-              and characteristics that make a good designer (looking at you,
-              patience). I take great pleasure in the design process -
-              specifically where it meets engineering.
+              visual design, in general, and for the web. This doesn't come
+              as naturally to me as software development, and I'm enjoying
+              actively developing my patience and attention to detail. I take
+              a lot more pleasure in the design process - especially where it meets engineering.
             </p>
           </div>
           <div class="bio-grid__cell">
             <p class="font-light">
               <span class="font-normal">Dancer &amp; Producer</span>
               I am involved in the production and performances of genau dance
-              co. - a London-based contemporary dance theatre company. It makes
-              a nice difference from a lot of the sitting involved in software
-              development.
+              co. - a London-based contemporary dance theatre company. We are
+              currently creating a trilogy centred around resilience, and it's a
+              nice counter point to being a sit-down developer.
             </p>
           </div>
           <div class="bio-grid__cell">
@@ -64,17 +63,17 @@
           </div>
           <div class="bio-grid__cell">
             <span class="font-medium">History of art and place</span> I am
-            really interested in the history of art (specifically the Italian
-            Renaissance, the pre-raphaelites, and impressionism) - and places
-            (mosly European cities). I love how many people's efforts and layers
-            of beauty sit beaneath things which appear static.
+            really interested in the stories behind the creation of art, and
+            the lives lived in certain places (mosly European cities).
+            I love how many peoples' efforts and layers of beauty sit beaneath
+            things which appear static.
           </div>
           <div class="bio-grid__cell">
             <span class="font-medium">Psychology</span> In 2018 I was awarded my
-            Ph.D. in education research, and since at least a decade before that
-            I have been interested in understanding how people interpret, store,
+            Ph.D. in education research, and since the decade before that
+            I have been interested in how people interpret, store,
             and retrieve information. Specifically I am interested in the
-            processes of language acquisition, and story-telling.
+            processes of language acquisition and story-telling.
           </div>
         </div>
       </div>
@@ -82,12 +81,20 @@
   </div>
 </template>
 
-<script>
-export default {
-  components: {}
-}
-</script>
+<script lang="ts">
+import Vue from 'vue'
+import Component from 'vue-class-component'
 
+import Icon from '../components/icon.vue'
+
+@Component({
+  name: 'HomePage',
+  components: {
+    Icon
+  }
+})
+export default class Index extends Vue {}
+</script>
 <style lang="scss" scoped>
 @import '~/assets/scss/styles.scss';
 
@@ -96,12 +103,32 @@ export default {
   grid-template-columns: repeat(2, 1fr);
   background: $orange;
   color: white;
-  padding: 30px 15px;
+  padding: 30px 30px;
 }
 
 .header__name {
   font-family: $sans-serif-font;
   font-size: 40px;
+}
+
+.header__icons {
+  display: grid;
+  grid-template-columns: repeat(3, min-content);
+  width: 100%;
+  height: 100%;
+  padding-right: 0px;
+  justify-content: end;
+  align-items: center;
+  grid-column-gap: 8px;
+
+  @media screen and (min-width: 500px) {
+    padding-right: 50px;
+    grid-column-gap: 25px;
+  }
+}
+
+.header__icons__icon {
+  width: fit-content;
 }
 
 .bio__text {
@@ -141,6 +168,7 @@ export default {
 
 .bio-grid__cell {
   font-family: $serif-font;
+  line-height: 165%;
 }
 
 .title {
