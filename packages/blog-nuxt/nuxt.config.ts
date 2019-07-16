@@ -6,18 +6,19 @@ const nuxtConfig: NuxtConfiguration = {
    ** Headers of the page
    */
   head: {
-    title: process.env.npm_package_name || "",
+    title: "Thomas Wilson",
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       {
+        content:
+          "Thomas Wilson is a Web Developer currently based in London, England. This is his personal website.",
         hid: "description",
         name: "description",
-        content: process.env.npm_package_description || "",
       },
     ],
     link: [
-      { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+      { rel: "icon", type: "image/x-icon", href: "/tw-favicon.ico" },
       {
         href:
           "https://fonts.googleapis.com/css?family=Merriweather:300,400,500|Work+Sans&display=swap",
